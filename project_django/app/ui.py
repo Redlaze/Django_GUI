@@ -1,8 +1,7 @@
 from objectpack.ui import BaseEditWindow, make_combo_box, BaseListWindow
 from m3_ext.ui import all_components as ext
-
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.auth.models import User, Permission, Group
+from django.contrib.auth.models import User, Permission
 
 
 class PermissionUI(BaseListWindow):
@@ -36,8 +35,9 @@ class UserAddWindow(BaseEditWindow):
 
         self.field__superuser = ext.ExtCheckBox(
             label=u'superuser status',
-            name='superuser_status',
-            anchor='100%')
+            name='is_superuser',
+            anchor='100%',
+            checked=False)
 
         self.field__username = ext.ExtStringField(
             label=u'username',
@@ -49,7 +49,8 @@ class UserAddWindow(BaseEditWindow):
         self.field__first_name = ext.ExtStringField(
             label=u'first name',
             name='first_name',
-            anchor='100%')
+            anchor='100%',
+            allow_blank=True)
 
 
         self.field__last_name = ext.ExtStringField(
@@ -59,20 +60,25 @@ class UserAddWindow(BaseEditWindow):
 
 
         self.field__emai_adress = ext.ExtStringField(
-            label=u'emai adress',
-            name='emai_adress',
-            anchor='100%')
+            label=u'email adress',
+            name='email',
+            anchor='100%',
+            vtype='email',
+            input_type='passwordfield',
+            allow_blank=True)
 
 
         self.field__staff_status = ext.ExtCheckBox(
-            label=u'staff status',
-            name='staff_status',
-            anchor='100%')
+            label=u'staff',
+            name='is_staff',
+            anchor='100%',
+            checked=False)
 
         self.field__active = ext.ExtCheckBox(
             label=u'active',
-            name='active',
-            anchor='100%')
+            name='is_staff',
+            anchor='100%',
+            checked=False)
 
 
         self.field__data_joined = ext.ExtDateField(

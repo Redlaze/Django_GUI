@@ -1,4 +1,5 @@
 from objectpack.actions import ObjectPack
+from django.contrib.auth.hashers import make_password, identify_hasher
 from objectpack.ui import ModelEditWindow
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User, Permission, Group
@@ -28,7 +29,7 @@ class UserActionPack(ObjectPack):
         },
         {
             'header': 'superuser status',
-            'data_index': 'superuser_status'
+            'data_index': 'is_superuser'
         },
         {
             'header': 'username',
@@ -43,16 +44,16 @@ class UserActionPack(ObjectPack):
             'data_index': 'last_name'
         },
         {
-            'header': 'emai adress',
-            'data_index': 'emai_adress'
+            'header': 'email adress',
+            'data_index': 'email'
         },
         {
             'header': 'staff status',
-            'data_index': 'staff_status'
+            'data_index': 'is_staff'
         },
         {
             'header': 'active',
-            'data_index': 'active'
+            'data_index': 'is_staff'
         },
         {
             'header': 'date joined',
@@ -87,6 +88,10 @@ class GroupActionPack(ObjectPack):
     model = Group
     add_window = edit_window = ModelEditWindow.fabricate(model=Group)
     add_to_menu = add_to_desktop = True
+
+    columns = [
+        {'header': 'name', 'data_index': 'name', 'sortable': True}
+    ]
 
 
 
