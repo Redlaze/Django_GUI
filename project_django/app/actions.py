@@ -1,5 +1,4 @@
 from objectpack.actions import ObjectPack
-from django.contrib.auth.hashers import make_password, identify_hasher
 from objectpack.ui import ModelEditWindow
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User, Permission, Group
