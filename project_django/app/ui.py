@@ -63,7 +63,6 @@ class UserAddWindow(BaseEditWindow):
             label=u'email adress',
             name='email',
             anchor='100%',
-            vtype='email',
             input_type='passwordfield',
             allow_blank=True)
 
