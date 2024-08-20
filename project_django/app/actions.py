@@ -52,7 +52,7 @@ class UserActionPack(ObjectPack):
         },
         {
             'header': 'active',
-            'data_index': 'is_staff'
+            'data_index': 'is_active'
         },
         {
             'header': 'date joined',

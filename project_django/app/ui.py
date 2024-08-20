@@ -63,7 +63,6 @@ class UserAddWindow(BaseEditWindow):
             label=u'email adress',
             name='email',
             anchor='100%',
-            input_type='passwordfield',
             allow_blank=True)
 
 
@@ -75,14 +74,14 @@ class UserAddWindow(BaseEditWindow):
 
         self.field__active = ext.ExtCheckBox(
             label=u'active',
-            name='is_staff',
+            name='is_active',
             anchor='100%',
             checked=False)
 
 
-        self.field__data_joined = ext.ExtDateField(
-            label=u'data joined',
-            name='data_joined',
+        self.field__date_joined = ext.ExtDateField(
+            label=u'date joined',
+            name='date_joined',
             anchor='100%',
             format='d.m.Y')
 
@@ -101,7 +100,7 @@ class UserAddWindow(BaseEditWindow):
             self.field__last_name,
             self.field__staff_status,
             self.field__active,
-            self.field__data_joined
+            self.field__date_joined
 
         ))
 
